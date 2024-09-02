@@ -1,48 +1,51 @@
 <?php
 declare(strict_types=1);
+
 namespace Mageplugins\ResizeImageGraphQl\Model\Resolver\Product\MediaGallery;
 
 use Magento\Catalog\Helper\Image;
 use Magento\Catalog\Model\Product;
 use Magento\Catalog\Model\Product\ImageFactory;
-use Magento\CatalogGraphQl\Model\Resolver\Products\DataProvider\Image\Placeholder as PlaceholderProvider;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\GraphQl\Config\Element\Field;
 use Magento\Framework\GraphQl\Query\ResolverInterface;
 use Magento\Framework\GraphQl\Schema\Type\ResolveInfo;
 use Mageplugins\ResizeImageGraphQl\Helper\Data as ResizeImageHelper;
 
+/**
+ * Returns media URL.
+ */
 class Url implements ResolverInterface
 {
     /**
      * @var ImageFactory
      */
     private $productImageFactory;
-    /**
-     * @var PlaceholderProvider
-     */
-    private $placeholderProvider;
 
     /**
      * @var Image
      */
-    protected $_catalogImageHelper;
-    protected $helperData;
+    private $catalogImageHelper;
 
     /**
+     * @var ResizeImageHelper
+     */
+    private $helperData;
+
+    /**
+     * Constructor.
+     *
      * @param ImageFactory $productImageFactory
-     * @param PlaceholderProvider $placeholderProvider
      * @param Image $catalogImageHelper
+     * @param ResizeImageHelper $helperData
      */
     public function __construct(
         ImageFactory $productImageFactory,
-        PlaceholderProvider $placeholderProvider,
         Image $catalogImageHelper,
         ResizeImageHelper $helperData
     ) {
         $this->productImageFactory = $productImageFactory;
-        $this->placeholderProvider = $placeholderProvider;
-        $this->_catalogImageHelper = $catalogImageHelper;
+        $this->catalogImageHelper = $catalogImageHelper;
         $this->helperData = $helperData;
     }
 
@@ -69,6 +72,7 @@ class Url implements ResolverInterface
 
         /** @var Product $product */
         $product = $value['model'];
+
         if (isset($value['image_type'])) {
             return $this->getImageUrl($value['image_type'], $product, $args);
         }
@@ -86,20 +90,20 @@ class Url implements ResolverInterface
     }
 
     /**
-     * Get image URL
+     * Get image URL.
      *
      * @param string $imageType
-     * @param $product
+     * @param Product $product
      * @param array $imageArgs
      * @return string
      */
-    private function getImageUrl(string $imageType, $product, array $imageArgs): string
+    private function getImageUrl(string $imageType, Product $product, array $imageArgs): string
     {
         $width = $imageArgs['width'] ?? null;
         $height = $imageArgs['height'] ?? null;
-        return $this->_catalogImageHelper->init($product, 'product_page_image_large')
-                        ->setImageFile($product->getData($imageType))
-                        ->resize($width, $height)
-                        ->getUrl();
+        return $this->catalogImageHelper->init($product, 'product_page_image_large')
+            ->setImageFile($product->getData($imageType))
+            ->resize($width, $height)
+            ->getUrl();
     }
 }
