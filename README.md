@@ -10,15 +10,7 @@
 
 ## Installation
 
-### Option 1: Install via Git
-
-1. Clone the repository into your Magento `code` directory:
-
-    ```bash
-    git clone https://github.com/ccyogendra/imageresizer.git app/code/Mageplugins/ResizeImageGraphQl
-    ```
-
-### Option 2: Manual Installation
+### Option 1: Manual Installation
 
 1. Create the necessary directory structure inside your Magento `code` directory:
 
