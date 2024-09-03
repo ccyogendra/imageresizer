@@ -73,15 +73,17 @@ class Url implements ResolverInterface
         /** @var Product $product */
         $product = $value['model'];
 
+
         if (isset($value['image_type'])) {
+
             return $this->getImageUrl($value['image_type'], $product, $args);
         }
 
         if (isset($value['file'])) {
             $image = $this->productImageFactory->create();
             $image->setDestinationSubdir('image')->setBaseFile($value['file']);
-            $image->setWidth($args['width'] ?? null);
-            $image->setHeight($args['height'] ?? null);
+            $image->setWidth($args['width']);
+            $image->setHeight($args['height']);
             $image->resize();
             return $image->getUrl();
         }
@@ -99,8 +101,8 @@ class Url implements ResolverInterface
      */
     private function getImageUrl(string $imageType, Product $product, array $imageArgs): string
     {
-        $width = $imageArgs['width'] ?? null;
-        $height = $imageArgs['height'] ?? null;
+        $width = $imageArgs['width'];
+        $height = $imageArgs['height'];
         return $this->catalogImageHelper->init($product, 'product_page_image_large')
             ->setImageFile($product->getData($imageType))
             ->resize($width, $height)

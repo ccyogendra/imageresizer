@@ -4,7 +4,7 @@
         <section id="resizeimage" translate="label" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1">
             <class>separator-top</class>
             <label>Image Resizer</label>
-            <tab>mageplugins</tab> <!-- This matches the tab ID -->
+            <tab>mageplugins</tab>
             <resource>Mageplugins_ResizeImageGraphQl::resizeimage_config</resource>
             <group id="display_setting" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                 <label>Image Resizer</label>
@@ -13,16 +13,12 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
                 <group id="mageplugins_general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>Product listing</label>
+                    <label>Product listing Image Size</label>
                     <field id="mageplugins_height" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
                         <label>Height</label>
-                        <comment>This text will display on the frontend.</comment>
-                        <validate>required-entry</validate>
                     </field>
                     <field id="mageplugins_width" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
                         <label>Width</label>
-                        <comment>This text will display on the frontend.</comment>
-                        <validate>required-entry</validate>
                     </field>
                 </group>
             </group>
