@@ -84,7 +84,7 @@ Test the image resizing functionality using the following GraphQL query:
 }
 ```
 # Custom query 
-# For custom you can pass width and heigh from frontend graphQl 
+For custom you can pass width and heigh from frontend graphQl 
 ```Bash
 
 {
