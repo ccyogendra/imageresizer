@@ -1,5 +1,5 @@
 <?php
-namespace Mageplugins\ResizeImageGraphQl\Helper;
+namespace Mageplugin\ResizeImageGraphQl\Helper;
 
 use Magento\Framework\Stdlib\DateTime\DateTime;
 use Magento\Customer\Model\Session as CustomerSession;
@@ -20,9 +20,9 @@ class Data extends AbstractHelper
     protected $storeManager;
 
     /**
-     * XML path constant for Mageplugins Image Resizer configuration.
+     * XML path constant for Mageplugin Image Resizer configuration.
      */
-    const XML_PATH_MAGEPLUGINS_IMAGERESIZER = 'resizeimage/display_setting/mageplugins_general';
+    const XML_PATH_MAGEPLUGIN_IMAGERESIZER = 'resizeimage/display_setting/mageplugin_general';
 
     /**
      * Constructor.
@@ -62,6 +62,6 @@ class Data extends AbstractHelper
      */
     public function getGeneralConfig($fieldId, $storeCode = null)
     {
-        return $this->getConfigValue(self::XML_PATH_MAGEPLUGINS_IMAGERESIZER . '/' . $fieldId, $storeCode);
+        return $this->getConfigValue(self::XML_PATH_MAGEPLUGIN_IMAGERESIZER . '/' . $fieldId, $storeCode);
     }
 }

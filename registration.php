@@ -3,6 +3,6 @@ use Magento\Framework\Component\ComponentRegistrar;
 
 ComponentRegistrar::register(
     ComponentRegistrar::MODULE,
-    'Mageplugins_ResizeImageGraphQl',
+    'Mageplugin_ResizeImageGraphQl',
     __DIR__
 );

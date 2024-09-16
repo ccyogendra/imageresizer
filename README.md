@@ -1,6 +1,6 @@
 # Resize Image GraphQl
 
-`ResizeImageGraphQl` is a Magento 2 module developed by `Mageplugins` that enables dynamic resizing of product images via GraphQL queries.
+`ResizeImageGraphQl` is a Magento 2 module developed by `Mageplugin` that enables dynamic resizing of product images via GraphQL queries.
 
 ## Features
 
@@ -15,7 +15,7 @@
 1. Create the necessary directory structure inside your Magento `code` directory:
 
     ```bash
-    mkdir -p app/code/Mageplugins
+    mkdir -p app/code/Mageplugin
     ```
 
 2. Clone the extension into this directory:
@@ -27,14 +27,14 @@
 3. Rename the cloned folder:
 
     ```bash
-    mv app/code/Mageplugins/imageresizer app/code/Mageplugins/ResizeImageGraphQl
+    mv app/code/Mageplugin/imageresizer app/code/Mageplugin/ResizeImageGraphQl
     ```
 Or Manually   
 Directory rename folder imageresizer to ResizeImageGraphQl
 
 # Enable the Module
 ```Bash
-php bin/magento module:enable Mageplugins_ResizeImageGraphQl
+php bin/magento module:enable Mageplugin_ResizeImageGraphQl
 php bin/magento setup:upgrade
 ```
 
@@ -47,7 +47,7 @@ php bin/magento cache:flush
 
 
 ## Admin Configuration
-Navigate to Stores > Configuration > Mageplugins > Image Resizer.
+Navigate to Stores > Configuration > Mageplugin > Image Resizer.
 Configure the settings according to your preferences.
 set width and heght according to need
 ![Alt text](image.png)

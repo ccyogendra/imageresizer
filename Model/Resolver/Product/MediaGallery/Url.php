@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Mageplugins\ResizeImageGraphQl\Model\Resolver\Product\MediaGallery;
+namespace Mageplugin\ResizeImageGraphQl\Model\Resolver\Product\MediaGallery;
 
 use Magento\Catalog\Helper\Image;
 use Magento\Catalog\Model\Product;
@@ -10,7 +10,7 @@ use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\GraphQl\Config\Element\Field;
 use Magento\Framework\GraphQl\Query\ResolverInterface;
 use Magento\Framework\GraphQl\Schema\Type\ResolveInfo;
-use Mageplugins\ResizeImageGraphQl\Helper\Data as ResizeImageHelper;
+use Mageplugin\ResizeImageGraphQl\Helper\Data as ResizeImageHelper;
 
 /**
  * Returns media URL.
@@ -59,8 +59,8 @@ class Url implements ResolverInterface
         array $value = null,
         array $args = null
     ) {
-        $args['width'] = $args['width'] ?? $this->helperData->getGeneralConfig('mageplugins_width');
-        $args['height'] = $args['height'] ?? $this->helperData->getGeneralConfig('mageplugins_height');
+        $args['width'] = $args['width'] ?? $this->helperData->getGeneralConfig('mageplugin_width');
+        $args['height'] = $args['height'] ?? $this->helperData->getGeneralConfig('mageplugin_height');
 
         if (!isset($value['image_type']) && !isset($value['file'])) {
             throw new LocalizedException(__('"image_type" value should be specified'));
