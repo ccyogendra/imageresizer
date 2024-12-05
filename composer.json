@@ -1,0 +1,20 @@
+{
+    "name": "mageplugin/module-resizeimagegraphql",
+    "description": "",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "MagePlugin"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Mageplugin\\ResizeImageGraphQl\\": ""
+        }
+    }
+}
